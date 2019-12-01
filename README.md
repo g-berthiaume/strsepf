@@ -37,9 +37,10 @@ TEST_ASSERT_EQUAL(4,   n);
 
 Let's say you have to write a C program to tokenize a string that contains a list of tokens separated by a space.
 
-For example this : `version: alpha\n`.
+For example this : `version: alpha\n`. How do you extract information?
 
-### Option 1 : You could use `sscanf`
+
+#### Option 1 : You could use `sscanf`
 
 ```c
 char in[] = "version: alpha\n";
@@ -53,7 +54,7 @@ TEST_ASSERT_EQUAL_STRING("alpha", versionName); //< This will pass.
 While this is certainly readable and compact, some problem can be encountered. For example a string bigger than 11 will provoke a buffer overflow.
 You can read a blog post about the danger of `scanf` [here](http://sekrit.de/webdocs/c/beginners-guide-away-from-scanf.html).
 
-### Option 2: You could use `sscanf` in a saffer way
+#### Option 2: You could use `sscanf` in a saffer way
 
 ```c
 char in[] = "version: alpha\n";
@@ -67,14 +68,14 @@ if (sscanf(in, "%*s %11[^\n]%*c", versionName) != 1)
 While this option more secure, this is less readable and now the buffer size is hardcoded in the format (less maintenable).
 
 
-### Option 3: strtok
+#### Option 3: strtok
 
 `strtok` is not a good idea.
 
 It uses a static buffer while parsing, so it's not reentrant (not good for RTOS).
 It does not correctly handle "empty" fields -- that is, where two delimiters are back-to-back and meant to denote the lack of information in that field.
 
-### Option 4: strtok_r
+#### Option 4: strtok_r
 
 `strtok_r` is the reentrant version of `strtok`.
 
@@ -92,14 +93,13 @@ char *versionName = strtok_r(NULL, "\n", &saveptr); //< get `alpha`
 if (versionName == NULL){
     return -1;
 }
-}
 ```
 
 This is a good solution, but the interface is less than beautiful and more verbose.
 
 This is especially true if we want to parse number in a string.
 
-### Option 5: strsep
+#### Option 5: strsep
 
 `strsep` is a BSD function. Therefore, there's no garantiy it will be included in `string.h`.
 
@@ -122,7 +122,7 @@ if (versionName == NULL){
 
 This is a better solution, but the interface is still quite verbose, especially if we want to extract numbers from a string.
 
-### Option 6: strsepf
+#### Option 6: using `strsepf`
 
 Simple usage:
 
