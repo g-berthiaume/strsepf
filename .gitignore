@@ -1,0 +1,10 @@
+# Text editor specific dir
+.vscode
+
+# External tool
+external/Unity/*
+!external/Unity/README.md
+
+# Build file
+build/*
+!build/Makefile
