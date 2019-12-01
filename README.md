@@ -64,6 +64,7 @@ if (sscanf(in, "%*s %11[^\n]%*c", versionName) != 1)
 {
     return -1; // We expect exactly 1 conversion
 }
+```
 
 While this option more secure, this is less readable and now the buffer size is hardcoded in the format (less maintenable).
 
