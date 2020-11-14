@@ -5,6 +5,5 @@
 external/Unity/*
 !external/Unity/README.md
 
-# Build file
-build/*
-!build/Makefile
+# Build dir
+build*/
