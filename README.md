@@ -165,28 +165,18 @@ if (versionName == NULL){
 This was built with gcc 7.4.0 on [WSL](https://wiki.ubuntu.com/WSL).
 
 ```sh
-cd build
+mkdir build && cd build
 cmake ..
 make
 ```
 
 ## Testing
 
-This was built with gcc 7.4.0 on [WSL](https://wiki.ubuntu.com/WSL).
-
 ```sh
-# Install unit test framework
-cd external
-git clone https://github.com/ThrowTheSwitch/Unity.git
-
-# Build
-cd ..
-cd build
-cmake ..
+mkdir buildtests && cd buildtests
+cmake .. -DBUILD_TESTING
 make
-
-# Run tests
-./run
+make test
 ```
 
 ## License
