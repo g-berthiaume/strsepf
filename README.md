@@ -1,20 +1,19 @@
-# strsepf
+# strsepf - Experimental library
 
-Single header string parsing function combining the memory safety of strsep and the convenience of a sscanf-like interface.
+`strsepf` is an exercise in API design.  
+It's purpose is to be a string parsing function combining the memory safety of `strsep` and the convenience of a `sscanf`-like interface.
 
 It is designed to be a safer `sscanf` for embedded system application.
 
 Some key design choices:
 
-- No dynamic memory allocation.
-- Will destroy its input string (by adding '\0').
-- Memory safe: no string copy, only pointer to the input string.
-- Built with C11.
-- Single header.
-- No floating point support.
-- Re-entrant (RTOS safe).
-- Incremental single-pass parsing.
-- Library code is covered with unit-tests.
+- No dynamic memory allocation
+- Will destroy its input string (by adding '\0')
+- C11
+- No floating point support
+- Re-entrant (RTOS safe)
+- Incremental single-pass parsing
+- Library code is covered with unit-tests
 
 Example 1:
 
