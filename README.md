@@ -1,9 +1,9 @@
 # strsepf - Experimental library
 
-`strsepf` is an exercise in API design.  
-It's purpose is to be a string parsing function combining the memory safety of `strsep` and the convenience of a `sscanf`-like interface.
+`strsepf` is an exercise in API design, not a production-ready library.
 
-It is designed to be a safer `sscanf` for embedded system application.
+It's purpose is to be a string parsing function combining the memory safety of `strsep` and the convenience of a `sscanf`-like interface.  
+It's designed to be a safer `sscanf` for embedded system application.
 
 Some key design choices:
 
