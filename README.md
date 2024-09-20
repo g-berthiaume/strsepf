@@ -1,9 +1,14 @@
-# strsepf - Experimental library
+> [ ! ]   
+> This library is an experiment I did in 2019 when trying to understand how to parse strings safely in C.  
+> 5 years of C later, I would now recommend using string slices (also called strings view) over using `strsepf` (a sscanf-like interface).
+>
+> 
+> That being said, have fun reading this code!
 
-`strsepf` is an exercise in API design, not a production-ready library.
 
-It's purpose is to be a string parsing function combining the memory safety of `strsep` and the convenience of a `sscanf`-like interface.  
-It's designed to be a safer `sscanf` for embedded system application.
+# strsepf
+
+`strsepf` purpose is to be a string parsing function combining the memory safety of `strsep` and the convenience of a `sscanf`-like interface. It's designed to be a safer `sscanf` for embedded system applications.
 
 Some key design choices:
 
@@ -159,7 +164,9 @@ if (versionName == NULL){
 }
 ```
 
-## Building
+Before using: Please note that `strsepf` is an experiment, not a production-ready library.
+
+## How to build
 
 This was built with gcc 7.4.0 on [WSL](https://wiki.ubuntu.com/WSL).
 
@@ -180,7 +187,5 @@ make test
 
 ## License
 
-MIT License - Copyright (c) 2019 G. Berthiaume
+MIT License - Copyright (c) 2019 G. Berthiaume  
 See the `LICENCE` file for more information.
-
-This software is distributed under MIT license, so feel free to integrate it in your commercial products.
